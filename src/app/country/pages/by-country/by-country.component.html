@@ -18,11 +18,12 @@
 
 <hr>
 
-<div class="alert alert-danger">
-    Term not found!
+<div *ngIf="thereError"    
+     class="alert alert-danger">
+     Term: "{{term}}" not found!
 </div>
 
-<div class="row">
+<div *ngIf="!thereError" class="row">
     <div class="col">
 
         <table class="table table-hover">
