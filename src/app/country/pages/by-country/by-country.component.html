@@ -23,7 +23,7 @@
      Term: "{{term}}" not found!
 </div>
 
-<div *ngIf="!thereError" class="row">
+<div *ngIf="countries.length > 0" class="row">
     <div class="col">
 
         <table class="table table-hover">
@@ -37,8 +37,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
+                <tr *ngFor="let country of countries; let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>
+                        <img class="small-flag">{{country.flag}}
+                    </td>
+                    <td>{{country.name.official}}</td>
+                    <td>{{country.population | number}}</td>
+                    <td>
+                        <a [routerLink]="['/country', country.ccn3]">See...</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
