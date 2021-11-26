@@ -13,10 +13,9 @@
             'btn-outline-primary': activeRegion !== region
         }" -->
         <button *ngFor="let region of regions"
-                class="btn btn-outline-primary"
-                
+                [class]="getClassCSS( region )"
                 (click)="activateRegion( region ) "    >
-            {{ region }}
+            {{ region | titlecase }}
         </button>
     </div>
 </div>
