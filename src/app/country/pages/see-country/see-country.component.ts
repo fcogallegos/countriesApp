@@ -13,6 +13,7 @@ import { Country } from '../../interfaces/country.interface';
   styles: [
   ]
 })
+
 export class SeeCountryComponent implements OnInit {
 
   country!: Country;
@@ -28,6 +29,7 @@ export class SeeCountryComponent implements OnInit {
       tap( console.log )
     )  
     .subscribe( country => this.country = country[0] );
+
       
     // this.activatedRoute.params
     //   .subscribe( ({id}) => {
