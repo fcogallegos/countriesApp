@@ -1,5 +1,3 @@
-
-
 <h3>Search by region <small>{{ activeRegion | titlecase }}</small> </h3>
 <hr>
 
@@ -17,5 +15,15 @@
                 (click)="activateRegion( region ) "    >
             {{ region | titlecase }}
         </button>
+    </div>
+</div>
+
+
+
+<div *ngIf="countries.length > 0" class="row">
+    <div class="col">
+
+       <app-country-table [countries]="countries"></app-country-table>
+
     </div>
 </div>
