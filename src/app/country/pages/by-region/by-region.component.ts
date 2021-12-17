@@ -17,8 +17,7 @@ import { CountryService } from '../../services/country.service';
 export class ByRegionComponent {
 
 
-  regions: string[] = ['EU','EFTA','CARICOM','PA','AU','USAN','EEU','AL','ASEAN','CAIS'
-                      ,'CEFTA','NAFTA','SAARC'];
+  regions: string[] = ['africa', 'asia', 'europe', 'oceania', 'America'];
   activeRegion: string = '';
   countries: Country[] = [];
 
