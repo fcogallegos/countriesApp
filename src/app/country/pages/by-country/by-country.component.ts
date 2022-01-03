@@ -6,14 +6,22 @@ import { Country } from '../../interfaces/country.interface';
   selector: 'app-by-country',
   templateUrl: './by-country.component.html',
   styles: [
+    `
+      li {
+        cursor: pointer;
+      }
+    `
   ]
 })
 export class ByCountryComponent {
 
-
+  
   term: string = '';
   thereError: boolean = false;
   countries: Country[] = [];
+
+  suggestedCountries: Country[] = [];
+  showSuggestions: boolean = false;
 
   constructor( private countryService: CountryService ) { }
 
@@ -34,7 +42,18 @@ export class ByCountryComponent {
   }
 
   suggestions( term: string ) {
+    this.showSuggestions = true;
     this.thereError = false;
+    this.term = term;
+
+    this.countryService.searchCountry( term )
+      .subscribe( 
+        countries => this.suggestedCountries = countries.splice(0,5), 
+        (err) => this.suggestedCountries = []
+      );
   }
 
+  searchSuggested(term: string) {
+    this.search(term);
+  }
 }
